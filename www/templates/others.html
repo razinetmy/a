@@ -1,0 +1,24 @@
+<ion-view title="Others" hide-back-button="true" nav-transition="none" id="page74" style="background-color:#FFFFFF;">
+  <ion-content padding="true" scroll="false" class="has-header">
+    <ion-scroll class="list-container">
+      <style>
+        .spinner-ios-small {
+          stroke: #aaff0c !important;
+        }
+        .spinner-ios {
+          stroke: #aaff0c !important;
+        }
+      </style>
+      <ion-refresher on-refresh="doRefresh()" pulling-text="Tarik untuk segarkan..." refreshing-text="Penyegaran!" spinner="ios">
+      </ion-refresher>
+      <div style="text-align:center;" ng-show="page.showSpinner">
+        <ion-spinner icon="ios" class="spinner-balanced"></ion-spinner>
+      </div>
+      <ion-item class="item-balanced item-icon-left item-icon-right" ng-repeat="item in page.lnkLabels" ng-click="userAction('rec','list',null,item)" style="opacity:0.75">
+        <i class="icon dark ion-cube"></i>
+        &nbsp;{{item.title.toUpperCase()}}
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

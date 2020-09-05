@@ -1,0 +1,10 @@
+<ion-view title="Diari" id="page75">
+  <ion-content padding="true" class="has-header">
+    <ion-list id="diari-list2">
+      <ion-item class="item-icon-left balanced" id="diari-list-item94" ng-repeat="item in records" ng-click="userAction('rec','view',item.tid,null)">
+        <i class="icon ion-calendar"></i>{{formatDate(item.tid)|date}}
+        <span class="item-note">{{item.score}} / {{totalDeeds(item.deeds)}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

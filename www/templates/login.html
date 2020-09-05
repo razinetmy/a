@@ -1,0 +1,32 @@
+<ion-view title="Login" hide-back-button="true" cache-view="false" nav-transition="none" id="page30" style="background-color:#F6F2F2;">
+  <ion-nav-buttons side="left" scroll="false" class="has-header">
+    <button class="button icon No Icon" ng-click="userAction('nav','intro',null,null)"> Intro</button>
+  </ion-nav-buttons>
+  <ion-content padding="false" scroll="false" class="has-header">
+    <div class="spacer" style="height: 100px;"></div>
+    <div>
+      <img src="img/8MhYPyGURayVOJmDg0i2_amalanku-coollogo_com-18655457.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div>
+      <div style="height:10px"></div>
+      <div ng-show="!webuser.isSignedIn">
+        <div class="button-bar">
+          <button class="button button-balanced button-clear button-icon"></button>
+          <button ng-click="userAction('user','signIn',null,null)" class="button button-balanced button-clear button-icon icon ion-log-in"></button>
+          <button ng-click="userAction('user','signUp',null,null)" class="button button-calm button-clear button-icon icon ion-person-add"></button>
+          <button class="button button-calm button-clear button-icon"></button>
+        </div>
+        <button ng-click="userAction('user','resetPassword',null,null)" style="border-radius:5px 5px 5px 5px;" class="button button-block button-icon assertive">
+          <small>Forget Password?</small>
+        </button>
+
+      </div>
+      <div ng-show="webuser.isSignedIn" class="button-bar">
+        <button class="button button-energized button-block button-icon"></button>
+        <button ng-click="userAction('user','popupView',null,null)" menu-close="" class="button button-energized button-clear button-icon icon ion-gear-a"></button>
+        <button ng-click="userAction('user','signOut',null,null)" menu-close="" class="button button-assertive button-clear button-icon icon ion-log-out assertive"></button>
+        <button style="border-radius:5px 5px 5px 5px;" class="button button-assertive button-block button-icon assertive"></button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

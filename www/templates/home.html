@@ -1,0 +1,32 @@
+<ion-view title="Home" nav-transition="none" id="page25" style="background-color:#FFFFFF;">
+  <ion-content padding="true" class="has-header">
+    <div class="item item-icon-left" ion-datetime-picker="" date="" ng-model="recordTemp.dateValue" ng-change="setDate(recordTemp.dateValue)">
+      <i class="icon ion-ios-calendar balanced"></i>
+      <strong>{{recordTemp.dateValue |date:"yyyy-MM-dd"}}</strong>
+      <span class="item-note">{{recordDaily.score}} / {{recordDeeds.length}}</span>
+    </div>
+    <form id="home-form2" class="list">
+      <ion-toggle toggle-class="toggle-balanced" id="home-toggle1" ng-repeat="item in recordDeeds" ng-checked="item.done==true" ng-change="updateRecords(item,$index)" ng-model="item.done">{{item.title}}</ion-toggle>
+    </form>
+    <ion-scroll class="list-container">
+      <style>
+        .spinner-ios-small {
+          stroke: #aaff0c !important;
+        }
+        .spinner-ios {
+          stroke: #aaff0c !important;
+        }
+      </style>
+      <ion-refresher on-refresh="doRefresh()" pulling-text="Tarik untuk segarkan..." refreshing-text="Penyegaran!" spinner="ios">
+      </ion-refresher>
+      <div style="text-align:center;" ng-show="page.showSpinner">
+        <ion-spinner icon="ios" class="spinner-balanced"></ion-spinner>
+      </div>
+      <ion-item class="item-balanced item-icon-left item-icon-right" ng-repeat="item in page.lnkLabels" ng-click="userAction('rec','list',null,item)" style="opacity:0.75">
+        <i class="icon dark ion-cube"></i>
+        &nbsp;{{item.title.toUpperCase()}}
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-scroll>
+  </ion-content>
+</ion-view>
